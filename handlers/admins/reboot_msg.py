@@ -14,7 +14,6 @@ async def reboot_msg(message: types.Message):
     config.LINK_MES = all_message_fields['link_message']
     config.AFTER_RATING_MES = all_message_fields['after_rating_message']
     config.ANSWER_MES = all_message_fields['answer_mes']
-    print(111)
 
     if message != None:
         await message.answer("Текст обновлён")
