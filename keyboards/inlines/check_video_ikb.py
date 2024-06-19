@@ -4,7 +4,13 @@ from loader import rating_table, videos_table
 
 
 def creating_check_video_ikb(customer_id):
-    all_rating = list(filter(lambda x: x['fields']['Заказчик который поставил'][0] == customer_id, rating_table.all()))
+    try:
+        all_rating = list(filter(lambda x: x['fields']['Заказчик который поставил'][0] == customer_id, rating_table.all()))
+    except Exception as e:
+        print(e)
+
+    all_rating = []
+
     ikb = InlineKeyboardMarkup()
     for rat in all_rating:
         video_id = rat['fields']['Видео'][0]
